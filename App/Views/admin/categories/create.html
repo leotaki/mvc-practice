@@ -1,0 +1,31 @@
+{% extends "admin/main.html" %}
+
+{% block title %}Admin panel - Категории{% endblock %}
+
+{% block body %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="/admin">Главная</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="/admin/categories">Категории</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Создание новой категории</li>
+    </ol>
+</nav>
+<h3 class="text-center mb-2">Заполните форму</h3>
+<form action="/admin/categories/store" method="post">
+    <div class="form-group">
+        <label for="name">Название</label>
+        <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="Введите название">
+        <small id="nameHelp" class="form-text text-muted">Название должно содержать минимум 2 два символа</small>
+    </div>
+    <div class="form-group">
+        <label for="status">Статус</label>
+        <select class="form-control" id="status" name="status">
+            <option value="0">Неактивна</option>
+            <option value="1">Активна</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
+</form>
+
+{% endblock %}

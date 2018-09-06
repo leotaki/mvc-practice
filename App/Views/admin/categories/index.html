@@ -1,0 +1,56 @@
+{% extends "admin/main.html" %}
+
+{% block title %}Admin panel - Категории{% endblock %}
+
+{% block body %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="/admin">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Категории</li>
+    </ol>
+</nav>
+<h3 class="text-center mb-2">Категории</h3>
+<a class="btn btn-success" href="/admin/categories/create">+ Добавить категорию</a>
+<div class="d-flex justify-content-center">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th class="col-2">#</th>
+                <th class="col-6">Категория</th>
+                <th class="col-2">Статус</th>
+                <th class="col-2">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td scope="col">{{ loop.index }}</td>
+                    <td scope="col">{{ category.name}}</td>
+                    <td>{{ category.status == 1 ? 'Активна' : 'Не активна' }}</td>
+                    <td scope="col">
+                        <a class="btn btn-success"
+                           href="#">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class="btn btn-danger"
+                           href="#" data-toggle="modal" data-target="#confirm-delete"
+                           data-href="/asdasdas">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Категорий не найдено</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="modal fade" id="confirm-delete"
+         tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        {% include'admin/components/modal_window.html' with {'target' : 'категорию'} %}
+    </div>
+</div>
+
+{% endblock %}

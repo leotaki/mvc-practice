@@ -70,6 +70,10 @@ $routes = [
         'route' => 'admin/categories/delete/{id:\d+}',
         'params' => ['controller' => 'Category', 'action' => 'delete', 'namespace' => 'Admin']
     ],
+    [
+        'route' => 'admin/categories/update/{id:\d+}',
+        'params' => ['controller' => 'Category', 'action' => 'update', 'namespace' => 'Admin']
+    ],
     /*__________________________________________________________________________________________________________________
      *
      *                                          PRODUCT SECTION

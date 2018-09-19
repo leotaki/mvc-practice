@@ -30,12 +30,12 @@
                     <td>{{ category.status == 1 ? 'Активна' : 'Не активна' }}</td>
                     <td scope="col">
                         <a class="btn btn-success"
-                           href="#">
+                           href="/admin/categories/update/{{ category.id }}">
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a class="btn btn-danger"
                            href="#" data-toggle="modal" data-target="#confirm-delete"
-                           data-href="/asdasdas">
+                           data-href="/admin/categories/delete/{{ category.id }}">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>

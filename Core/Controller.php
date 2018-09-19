@@ -69,4 +69,13 @@ abstract class Controller
     protected function after()
     {
     }
+
+    /**
+     * @param string $url
+     */
+    protected function redirect(string $url)
+    {
+        header(sprintf('Location:%s', $url), 301);
+        exit();
+    }
 }
